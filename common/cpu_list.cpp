@@ -55,6 +55,7 @@
 #include "asm/propeller.h"
 #include "asm/propeller2.h"
 #include "asm/ps2_ee_vu.h"
+#include "asm/rv32em.h"
 #include "asm/riscv.h"
 #include "asm/sh4.h"
 #include "asm/sparc.h"
@@ -112,6 +113,7 @@
 #include "disasm/propeller.h"
 #include "disasm/propeller2.h"
 #include "disasm/ps2_ee_vu.h"
+#include "disasm/rv32em.h"
 #include "disasm/riscv.h"
 #include "disasm/sh4.h"
 #include "disasm/sparc.h"
@@ -136,6 +138,7 @@
 #include "simulate/lc3.h"
 #include "simulate/mips.h"
 #include "simulate/msp430.h"
+#include "simulate/rv32em.h"
 #include "simulate/riscv.h"
 #include "simulate/stm8.h"
 #include "simulate/tms1000.h"
@@ -1385,6 +1388,30 @@ struct _cpu_list cpu_list[] =
     disasm_range_ps2_ee_vu,
     NULL,
     PS2_EE_VU1,
+  },
+#endif
+#ifdef ENABLE_RV32EM
+  {
+    "rv32em",
+    CPU_TYPE_RV32EM,
+    ENDIAN_LITTLE,
+    1,
+    ALIGN_4,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    SREC_32,
+    parse_instruction_rv32em,
+    NULL,
+    link_not_supported,
+    list_output_rv32em,
+    disasm_range_rv32em,
+    SimulateRv32em::init,
+    NO_FLAGS,
   },
 #endif
 #ifdef ENABLE_RISCV

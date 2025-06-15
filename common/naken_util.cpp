@@ -83,6 +83,7 @@ static void print_usage()
     "   -ps2_ee                      (Playstation 2 EE)\n"
     "   -ps2_ee_vu0                  (Playstation 2 VU0)\n"
     "   -ps2_ee_vu1                  (Playstation 2 VU1)\n"
+    "   -rv32em                      (RV32EM)\n"
     "   -riscv                       (RISCV)\n"
     "   -sh4                         (SH4)\n"
     "   -stm8                        (STM8)\n"
@@ -337,7 +338,7 @@ bool is_command_valid(String &command, String &arg)
   {
     if (command.equals(command_names[i].name))
     {
-      if (command_names[i].has_arg == false) 
+      if (command_names[i].has_arg == false)
       {
         if (has_arg)
         {
@@ -347,7 +348,7 @@ bool is_command_valid(String &command, String &arg)
       }
         else
       {
-        if (command_names[i].is_optional == false && has_arg == false) 
+        if (command_names[i].is_optional == false && has_arg == false)
         {
           printf("Syntax error: %s requires argument(s)\n", command.value());
           return false;

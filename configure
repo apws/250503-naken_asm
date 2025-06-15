@@ -59,6 +59,7 @@ CPUS=" \
   POWERPC
   PROPELLER
   PROPELLER2
+  RV32EM
   RISCV
   SH4
   SPARC
@@ -576,6 +577,13 @@ for option in $@; do
     DISASM_OBJS="${DISASM_OBJS} ps2_ee_vu.o"
     TABLE_OBJS="${TABLE_OBJS} ps2_ee_vu.o"
     DFLAGS="${DFLAGS} -DENABLE_EMOTION_ENGINE"
+    echo "Enabling individual CPUs is deprecated and will be removed."
+  ;;
+  --enable-rv32em)
+    ASM_OBJS="${ASM_OBJS} rv32em.o"
+    DISASM_OBJS="${DISASM_OBJS} rv32em.o"
+    TABLE_OBJS="${TABLE_OBJS} rv32em.o"
+    DFLAGS="${DFLAGS} -DENABLE_RV32EM"
     echo "Enabling individual CPUs is deprecated and will be removed."
   ;;
   --enable-riscv)
